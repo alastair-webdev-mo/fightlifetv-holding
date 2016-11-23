@@ -1,0 +1,44 @@
+<!-- layout.nunjucks -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Fight Life TV - Freeview Channel 91</title>
+
+  <link rel="stylesheet" href="dist/css/style.css">
+  <link rel="shortcut icon" href="" type="image/x-icon" />
+ 
+  <!-- SOCIAL -->
+
+  <script src="https://use.typekit.net/vuk3rkh.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+</head>
+<body>
+<div id="load">
+  <div class="load-screen">
+    <img src="dist/img/logo.png">
+    <div class="progress">
+      <div class="bar"></div>
+    </div>
+  </div>
+</div>
+
+<div class="w100">
+  <div class="full-container">
+    {% block left %} {% endblock %}
+    {% block center %} {% endblock %}
+  </div>
+</div>
+
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script src="dist/js/app.js"></script>
+
+
+</body>
+</html>

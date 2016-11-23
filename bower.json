@@ -1,0 +1,17 @@
+{
+  "name": "fightlifetv-holding",
+  "description": "Holding page for FightLife TV",
+  "main": "gulpfile.js",
+  "authors": [
+    "Alastair Shone"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

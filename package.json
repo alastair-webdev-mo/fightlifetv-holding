@@ -1,0 +1,31 @@
+{
+  "name": "fightlifetv-holding",
+  "version": "1.0.0",
+  "description": "Holding page for FightLife TV",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "browser-sync": "^2.18.1",
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean-css": "^2.0.13",
+    "gulp-concat-css": "^2.3.0",
+    "gulp-dependencies": "^0.1.1",
+    "gulp-imagemin": "^3.1.1",
+    "gulp-jshint": "^2.0.4",
+    "gulp-notify": "^2.2.0",
+    "gulp-nunjucks-render": "^2.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^2.2.0",
+    "gulp-uglify": "^2.0.0",
+    "jshint": "^2.9.4",
+    "pump": "^1.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alastair Shone",
+  "license": "ISC"
+}
