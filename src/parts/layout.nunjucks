@@ -5,15 +5,17 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Fight Life TV - Freeview Channel 91</title>
+  <title>Fight Life TV - Front Runner - Freeview Channel 91</title>
 
   <link rel="stylesheet" href="dist/css/style.css">
-  <link rel="shortcut icon" href="" type="image/x-icon" />
+  <link rel="shortcut icon" href="dist/img/favicon.png" type="image/x-icon" />
  
   <!-- SOCIAL -->
 
   <script src="https://use.typekit.net/vuk3rkh.js"></script>
   <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+  <script src="https://use.fontawesome.com/3cf330e970.js"></script>
 
 </head>
 <body>

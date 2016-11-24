@@ -138,31 +138,38 @@ a:active, a:hover {
 
 .w100 .full-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: nowrap;
   background: url('../img/bg.jpg');
-  background-attachment: fixed;
+  background-attachment: local;
+  background-repeat: no-repeat;
   background-color: rgba(0,0,0,0.5);
-  background-position: center;
-  overflow: hidden;
+  background-position: top right;
+  overflow: auto;
+  height: 100%;
 }
 
 .w100 .full-container .content {
   flex: none;
-  padding: 30px 60px;
+  padding: 30px 30px;
 }
 
 .left {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  justify-content: space-between;
-  height: 100vh;
-  width: 20%;
+  justify-content: flex-start;
+  height: auto;
+  width: 100%;
+  text-align: center;
 }
 
 .site-links {
   margin-top: $reg-margin;
+}
+
+.social-media, .site-links {
+  display: none;
 }
 
 .site-links ul li, .social-media ul li {
@@ -183,11 +190,12 @@ a:active, a:hover {
 }
 
 .center {
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   background: none;
   position: relative;
+  top: -30px;
 }
 
 .left div, .left nav {
@@ -216,39 +224,42 @@ a:active, a:hover {
 }
 
 .center-content-front-wrapper {
-  width: 600px;
+  width: auto;
+  padding-bottom: 20px;
 }
 
 .channels {
-  margin-top: auto;
-  position: fixed;
-  left: 20%;
+  margin-top: 30px;
+  position: relative;
+  left: 0;
   bottom: 0;
   padding: 20px 0 30px;
-  background: $black;
+  background: transparent;
   width: 100%;
+  order: 1;
 }
 
 .channels ul {
   display: flex;
-  flex-direction: row;
-  align-items: flex-end;
+  flex-direction: column;
+  align-items: center;
   position:relative;
   top: 0px;
   z-index: 10;
 }
 
 .channels ul li {
-  padding: 0 35px;
+  padding: 0;
   text-align: center;
   position:relative;
+  margin-bottom: 30px;
 }
 
 .channels ul li:nth-child(1) {
   padding-left: 0;
 }
 
-.channels ul li:nth-child(3):after {
+.channels ul li:nth-child(4):after {
   display: none;
 }
 
@@ -262,6 +273,7 @@ a:active, a:hover {
   position: absolute;
   bottom: 0;
   right: 0;
+  display: none;
 }
 
 .channels ul li img {
@@ -275,41 +287,84 @@ a:active, a:hover {
   text-transform: uppercase;
 }
 
-.schedule, .videos, .about {
-  position: absolute;
+.schedule, .features, .about {
+  position: relative;
   width: 100%;
   top: 0;
   left: 0;
-  opacity: 0;
-  transform: translateY(300px);
-  visibility: hidden;
+  opacity: 1;
+  transform: none;
+  visibility: visible;
   transition: all 0.75s ease;
   -webkit-font-smoothing: antialiased;
+  text-align: center;
+  padding-bottom: 30px;
+  border-bottom: 2px solid $white;
+  order: 2;
 }
 
-.schedule.current, .videos.current, .about.current {
+.mobile-sm {
+  position: relative;
+  width: 100%;
+  top: 0;
+  left: 0;
+  -webkit-font-smoothing: antialiased;
+  text-align: center;
+  order: 3;
+}
+
+.mobile-sm ul {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+a.facebook, a.facebook:visited, a.instagram, a.instagram:visited, a.twitter, a.twitter:visited, a.facebook, a.twitter:visited {
+  color: $white;
+  text-decoration: none;
+}
+
+a.facebook:active, a.facebook:hover {
+  color: $fb;
+}
+
+a.instagram:active, a.instagram:hover {
+  color: $insta;
+}
+
+a.twitter:active, a.twitter:hover {
+  color: $twit;
+}
+
+a.youtube:active, a.youtube:hover {
+  color: $yt;
+}
+
+.schedule.current, .features.current, .about.current {
   opacity: 1;
   visibility: visible;
   transform: matrix(1, 0, 0, 1, 0, 0);
 }
 
-.videos.current ul {
+.features.current ul {
   overflow: auto;
 }
 
-.schedule h2, .videos h2, .about h2 {
+.schedule h2, .features h2, .about h2 {
   color: $white;
   font-family: $font1;
-  font-size: $large-size;
+  font-size: $medium-size;
   letter-spacing: 1px;
   margin-bottom: $reg-margin;
 }
 
 .center-content p {
-  font-weight: 600;
+  font-weight: 200;
   line-height: 1.3em;
   margin-bottom: 20px;
-  font-size: $small-head-size-2;
+  font-size: $font-size;
 }
 
 .day {
@@ -319,110 +374,294 @@ a:active, a:hover {
 .day h3.date {
   color: $blue;
   font-family: $font1;
-  font-size: $medium-size;
+  font-size: $small-head-size;
 }
 
 .day span.time {
   color: $white;
   font-family: $font2;
   text-transform: uppercase;
-  font-size: $font-size;
+  font-size: $reg-size;
 }
 
 .day h4.program-title {
   color: $white;
   margin-top: 10px;
-  font-size: $small-head-size;
+  font-size: $small-head-size-2;
   margin-bottom: $reg-margin;
 }
 
-.videos ul li.video {
+.features ul li.video {
   display: flex;
   margin: 0 0 30px;
+  flex-direction: column;
 }
 
-.videos ul {
-  overflow: auto;
-  height: 100vh - 25vh;
+.features ul {
+  overflow: visible;
+  height: auto;
 }
 
-.videos .video_desc, .videos iframe {
+.features .video_desc, .features iframe {
   flex-basis: auto;
 }
 
-.videos .video_desc {
-  width: 30%;
-  margin-right: 30px;
+.features .video_desc {
+  width: 100%;
+  margin-right: 0;
+  margin-top: 20px;
+  order: 2;
 }
 
-.videos .video_desc h3 {
+.features .video_desc h3 {
   font-size: $small-head-size;
 }
 
-.videos .video_desc h4 {
+.features .video_desc h4 {
   font-size: $small-head-size-2;
   color: $blue;
 }
 
-.videos .video_desc p {
+.features .video_desc p {
   margin-top: 10px;
   font-weight: 200;
   font-size: $font-size;
 }
 
-    .youtube-player {
-        position: relative;
-        padding-bottom: 0;
-        height: 0;
-        overflow: hidden;
-        max-width: 100%;
-        background: #000;
-        margin: 5px;
-        width: 560px;
-        height: 315px;
-    }
+.youtube-player {
+  position: relative;
+  padding-bottom: 0;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  background: #000;
+  margin: 5px 0;
+  width: 100%;
+  height: 200px;
+}
     
-    .youtube-player iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 100;
-        background: transparent;
-    }
+.youtube-player iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background: transparent;
+}
     
-    .youtube-player img {
-        bottom: 0;
-        display: block;
-        left: 0;
-        margin: auto;
-        max-width: 100%;
-        width: 100%;
-        position: absolute;
-        right: 0;
-        top: 0;
-        border: none;
-        height: auto;
-        cursor: pointer;
-        -webkit-transition: .4s all;
-        -moz-transition: .4s all;
-        transition: .4s all;
-    }
+.youtube-player img {
+  bottom: 0;
+  display: block;
+  left: 0;
+  margin: auto;
+  max-width: 100%;
+  width: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: none;
+  height: auto;
+  cursor: pointer;
+  -webkit-transition: .4s all;
+  -moz-transition: .4s all;
+  transition: .4s all;
+}
     
-    .youtube-player img:hover {
-        -webkit-filter: brightness(75%);
-    }
+.youtube-player img:hover {
+  -webkit-filter: brightness(75%);
+}
     
-    .youtube-player .play {
-        height: 72px;
-        width: 72px;
-        left: 50%;
-        top: 50%;
-        margin-left: -36px;
-        margin-top: -36px;
-        position: absolute;
-        background: url("//i.imgur.com/TxzC70f.png") no-repeat;
-        cursor: pointer;
-    }
+.youtube-player .play {
+  height: 72px;
+  width: 72px;
+  left: 50%;
+  top: 50%;
+  margin-left: -36px;
+  margin-top: -36px;
+  position: absolute;
+  background: url("../img/play.png") no-repeat;
+  cursor: pointer;
+}
 
+@media only screen and (min-width: 400px) {
+
+.channels {
+  margin-top: 0;
+}
+
+.channels ul {
+  flex-direction: row;
+}
+
+.channels ul li {
+  margin-bottom: 0;
+  flex: 1;
+  flex-basis: auto;
+}
+
+}
+
+@media only screen and (min-width: 750px) {
+
+.w100 .full-container .content {
+  padding: 30px 60px;
+}
+
+.mobile-sm {
+  display: none;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  height: 100vh;
+  width: 270px;
+  text-align: left;
+}
+
+.w100 .full-container {
+  flex-direction: row;
+  overflow: hidden;
+  height: auto;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.schedule, .features, .about {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transform: translateY(300px);
+  visibility: hidden;
+  transition: all 0.75s ease;
+  -webkit-font-smoothing: antialiased;
+  text-align: left;
+  padding-bottom: 0;
+  border-bottom: 0px solid;
+  order: 1;
+}
+
+.schedule.current, .features.current, .about.current {
+  opacity: 1;
+  visibility: visible;
+  transform: matrix(1, 0, 0, 1, 0, 0);
+}
+
+.social-media, .site-links {
+  display: block;
+}
+
+.center {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  background: none;
+  position: relative;
+  top: 0;
+}
+
+.center-content-front {
+  max-width: 550px;
+}
+
+.channels {
+  position: absolute;
+  margin-top: auto;
+  left: 0;
+  background: $black;
+  order: 2;
+}
+
+.channels ul {
+  align-items: flex-end;
+}
+
+.channels ul li {
+  padding: 0 35px;
+  flex: none;
+}
+
+.channels ul li:after {
+  display: block;
+}
+
+.schedule h2, .features h2, .about h2 {
+  font-size: $large-size;
+}
+
+.day h3.date {
+  font-size: $medium-size;
+}
+
+.day span.time {
+  font-size: $font-size;
+}
+
+.day h4.program-title {
+  font-size: $small-head-size;
+}
+
+.center-content p {
+  font-weight: 600;
+  font-size: $small-head-size-2;
+}
+
+.youtube-player {
+  width: 515px;
+  margin: 5px;
+}
+
+.features ul {
+  overflow: auto;
+  height: 100vh - 25vh;
+}
+
+}
+
+@media only screen and (min-width: 1180px) {
+
+.center {
+  width: 80%;
+}
+
+.features ul li.video {
+  display: flex;
+  margin: 0 0 30px;
+  flex-direction: row;
+}
+
+.features .video_desc {
+  width: 30%;
+  margin-right: 30px;
+  margin-top: 0;
+  order: 1;
+}
+
+.youtube-player {
+  width: 507px;
+  height: 315px;
+  order: 2;
+}
+
+.center-content-front {
+  max-width: none;
+}
+
+.center-content-front-wrapper {
+  width: 600px;
+}
+
+}
+
+@media only screen and (min-width: 1250px) {
+
+.center {
+    width: 100%;
+}
+
+}
