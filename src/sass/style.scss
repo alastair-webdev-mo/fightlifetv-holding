@@ -220,7 +220,92 @@ a:active, a:hover {
 .center-content-front {
   position: relative;
   z-index: 10;
-  top: 30px;
+  top: 0;
+  opacity: 1;
+  transition: all 0.25s ease-in-out;
+}
+
+.center-content-front.current {
+}
+
+#listings {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  transition: all 0.25s ease-in-out;
+}
+
+#listings-dates {
+  width: 100%;
+  margin-right: 0;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 30px;
+  display: none;
+}
+
+#listings-dates li {
+  background: $dgrey;
+  color: $white;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 10px 10px;
+  margin-bottom: 10px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+#listings-dates li.current {
+  background: $white;
+  color: $black;
+  font-size: $small-head-size-2;
+  padding: 22px 10px 20px;
+}
+
+#listings-dates li:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 0;
+  height: 0;
+  transform: translateY(-50%);
+  border-top: 0px solid transparent;
+  border-bottom: 0px solid transparent;
+  border-left: 0px solid $dgrey; 
+  transition: all 0.25s ease-in-out;
+  display: none;
+}
+
+#listings-dates li.current:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 0;
+  height: 0;
+  transform: translateY(-50%);
+  border-top: 31px solid transparent;
+  border-bottom: 31px solid transparent;
+  border-left: 31px solid $white;
+  display: none;
+}
+
+#listings li {
+  position: relative;
+  transform: translateX(650px);
+  opacity: 0;
+  transition: all 0.75s ease-in-out;
+  display: none;
+  width: 100%;
+}
+
+#listings li.current {
+  transform: translateX(0px);
+  opacity: 1;
+  display: block;
 }
 
 .center-content-front-wrapper {
@@ -301,6 +386,12 @@ a:active, a:hover {
   padding-bottom: 30px;
   border-bottom: 2px solid $white;
   order: 2;
+  margin-top: 30px;
+}
+
+.schedule {
+  display: flex;
+  flex-direction: column;
 }
 
 .mobile-sm {
@@ -311,6 +402,7 @@ a:active, a:hover {
   -webkit-font-smoothing: antialiased;
   text-align: center;
   order: 3;
+  margin-top: 30px;
 }
 
 .mobile-sm ul {
@@ -504,6 +596,20 @@ a.youtube:active, a.youtube:hover {
 
 @media only screen and (min-width: 750px) {
 
+.left .logo img {
+  max-width: 100%;
+}
+
+#listings-dates {
+  display: flex;
+}
+
+#listings li {
+  display: block;
+  width: auto;
+  position: absolute;
+}
+
 .w100 .full-container .content {
   padding: 30px 60px;
 }
@@ -518,8 +624,11 @@ a.youtube:active, a.youtube:hover {
   flex-wrap: wrap;
   justify-content: space-between;
   height: 100vh;
-  width: 270px;
+  width: 230px;
   text-align: left;
+  background: $black;
+  position: relative;
+  z-index: 500;
 }
 
 .w100 .full-container {
@@ -533,7 +642,7 @@ a.youtube:active, a.youtube:hover {
 .schedule, .features, .about {
   position: absolute;
   width: 100%;
-  top: 0;
+  top: 30px;
   left: 0;
   opacity: 0;
   transform: translateY(300px);
@@ -544,6 +653,7 @@ a.youtube:active, a.youtube:hover {
   padding-bottom: 0;
   border-bottom: 0px solid;
   order: 1;
+  margin-top: 0;
 }
 
 .schedule.current, .features.current, .about.current {
@@ -582,12 +692,12 @@ a.youtube:active, a.youtube:hover {
 }
 
 .channels ul li {
-  padding: 0 35px;
+  padding: 0 10px;
   flex: none;
 }
 
 .channels ul li:after {
-  display: block;
+  display: none;
 }
 
 .schedule h2, .features h2, .about h2 {
@@ -619,6 +729,46 @@ a.youtube:active, a.youtube:hover {
 .features ul {
   overflow: auto;
   height: 100vh - 25vh;
+}
+
+}
+
+@media only screen and (min-width: 960px) {
+
+.left {
+  width: 295px;
+}
+
+.left .logo img {
+  max-width: none;
+}
+
+.channels ul li {
+  padding: 0 35px;
+}
+
+.channels ul li:after {
+  display: block;
+}
+
+#listings-dates {
+  width: 250px;
+  margin-right: 40px;
+  display: block;
+  text-align: left;
+  margin-bottom: 0;
+}
+
+.schedule {
+  flex-direction: row;
+}
+
+#listings-dates li:after {
+  display: block;
+}
+
+#listings-dates li.current:after {
+  display: block;
 }
 
 }

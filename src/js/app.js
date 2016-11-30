@@ -28,6 +28,15 @@ $(document).ready(function(){
 	});
 });
 
+$('#listings-dates li').click(function(e) {
+	e.preventDefault();
+	var tab_id = $(this).attr('data-tab');
+
+	$('#listings li').removeClass('current');
+	$('#listings-dates li').removeClass('current');
+	$(this).addClass('current');
+	$("."+tab_id).addClass('current');
+});
 
 $('.site-links li').hover(function(e) {
 	e.preventDefault();
